@@ -90,6 +90,14 @@ namespace Merge.CRMClient.Test.Model
             // TODO unit test for the property 'Id'
         }
         /// <summary>
+        /// Test the property 'ModifiedAt'
+        /// </summary>
+        [Fact]
+        public void ModifiedAtTest()
+        {
+            // TODO unit test for the property 'ModifiedAt'
+        }
+        /// <summary>
         /// Test the property 'RemoteFields'
         /// </summary>
         [Fact]

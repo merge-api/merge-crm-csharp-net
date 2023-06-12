@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.ActivityTypeEnum
+* `CALL` - CALL * `MEETING` - MEETING * `EMAIL` - EMAIL
 
 ## Properties
 

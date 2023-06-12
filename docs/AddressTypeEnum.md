@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.AddressTypeEnum
+* `BILLING` - BILLING * `SHIPPING` - SHIPPING
 
 ## Properties
 

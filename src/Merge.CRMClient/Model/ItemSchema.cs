@@ -48,13 +48,13 @@ namespace Merge.CRMClient.Model
         /// <summary>
         /// Gets or Sets ItemType
         /// </summary>
-        [DataMember(Name = "item_type", EmitDefaultValue = true)]
+        [DataMember(Name = "item_type", EmitDefaultValue = false)]
         public bool ItemType { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemFormat
         /// </summary>
-        [DataMember(Name = "item_format", EmitDefaultValue = true)]
+        [DataMember(Name = "item_format", EmitDefaultValue = false)]
         public bool ItemFormat { get; set; }
 
         /// <summary>

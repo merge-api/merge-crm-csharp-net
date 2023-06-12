@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines ActivityTypeEnum
+    /// * &#x60;CALL&#x60; - CALL * &#x60;MEETING&#x60; - MEETING * &#x60;EMAIL&#x60; - EMAIL
     /// </summary>
+    /// <value>* &#x60;CALL&#x60; - CALL * &#x60;MEETING&#x60; - MEETING * &#x60;EMAIL&#x60; - EMAIL</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum ActivityTypeEnum
     {

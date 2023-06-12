@@ -11,11 +11,12 @@ Name | Type | Description | Notes
 **Account** | **Guid?** | The task&#39;s account. | [optional] 
 **CompletedDate** | **DateTime?** | When the task is completed. | [optional] 
 **DueDate** | **DateTime?** | When the task is due. | [optional] 
-**Status** | **TaskStatusEnum** | The task&#39;s status. | [optional] 
+**Status** | **TaskStatusEnum** | The task&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;CLOSED&#x60; - CLOSED | [optional] 
 **RemoteWasDeleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 **Id** | **Guid** |  | [optional] [readonly] 
 **RemoteId** | **string** | The third-party API ID of the matching object. | [optional] 
 **FieldMappings** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**ModifiedAt** | **DateTime** | This is the datetime that this object was last updated by Merge | [optional] [readonly] 
 **RemoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  | [optional] [readonly] 
 **RemoteFields** | [**List&lt;RemoteField&gt;**](RemoteField.md) |  | [optional] [readonly] 
 

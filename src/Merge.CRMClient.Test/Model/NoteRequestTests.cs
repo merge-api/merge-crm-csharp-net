@@ -113,6 +113,14 @@ namespace Merge.CRMClient.Test.Model
         {
             // TODO unit test for the property 'LinkedAccountParams'
         }
+        /// <summary>
+        /// Test the property 'RemoteFields'
+        /// </summary>
+        [Fact]
+        public void RemoteFieldsTest()
+        {
+            // TODO unit test for the property 'RemoteFields'
+        }
 
     }
 

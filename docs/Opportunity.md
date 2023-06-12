@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Owner** | **Guid?** | The opportunity&#39;s owner. | [optional] 
 **Account** | **Guid?** | The account of the opportunity. | [optional] 
 **Stage** | **Guid?** | The stage of the opportunity. | [optional] 
-**Status** | **OpportunityStatusEnum** | The opportunity&#39;s status. | [optional] 
+**Status** | **OpportunityStatusEnum** | The opportunity&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;WON&#x60; - WON * &#x60;LOST&#x60; - LOST | [optional] 
 **LastActivityAt** | **DateTime?** | When the opportunity&#39;s last activity occurred. | [optional] 
 **CloseDate** | **DateTime?** | When the opportunity was closed. | [optional] 
 **RemoteCreatedAt** | **DateTime?** | When the third party&#39;s opportunity was created. | [optional] 
@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Id** | **Guid** |  | [optional] [readonly] 
 **RemoteId** | **string** | The third-party API ID of the matching object. | [optional] 
 **FieldMappings** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**ModifiedAt** | **DateTime** | This is the datetime that this object was last updated by Merge | [optional] [readonly] 
 **RemoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  | [optional] [readonly] 
 **RemoteFields** | [**List&lt;RemoteField&gt;**](RemoteField.md) |  | [optional] [readonly] 
 

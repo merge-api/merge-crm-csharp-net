@@ -44,7 +44,8 @@ namespace Merge.CRMClient.Model
         /// <param name="lastActivityAt">The last date (either most recent or furthest in the future) of when an activity occurs in an account..</param>
         /// <param name="integrationParams">integrationParams.</param>
         /// <param name="linkedAccountParams">linkedAccountParams.</param>
-        public PatchedAccountRequest(Guid? owner = default(Guid?), string name = default(string), string description = default(string), string industry = default(string), string website = default(string), int? numberOfEmployees = default(int?), DateTime? lastActivityAt = default(DateTime?), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>))
+        /// <param name="remoteFields">remoteFields.</param>
+        public PatchedAccountRequest(Guid? owner = default(Guid?), string name = default(string), string description = default(string), string industry = default(string), string website = default(string), int? numberOfEmployees = default(int?), DateTime? lastActivityAt = default(DateTime?), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>), List<RemoteFieldRequest> remoteFields = default(List<RemoteFieldRequest>))
         {
             this.Owner = owner;
             this.Name = name;
@@ -55,6 +56,7 @@ namespace Merge.CRMClient.Model
             this.LastActivityAt = lastActivityAt;
             this.IntegrationParams = integrationParams;
             this.LinkedAccountParams = linkedAccountParams;
+            this.RemoteFields = remoteFields;
         }
 
         /// <summary>
@@ -119,6 +121,12 @@ namespace Merge.CRMClient.Model
         public Dictionary<string, Object> LinkedAccountParams { get; set; }
 
         /// <summary>
+        /// Gets or Sets RemoteFields
+        /// </summary>
+        [DataMember(Name = "remote_fields", EmitDefaultValue = false)]
+        public List<RemoteFieldRequest> RemoteFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +143,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  LastActivityAt: ").Append(LastActivityAt).Append("\n");
             sb.Append("  IntegrationParams: ").Append(IntegrationParams).Append("\n");
             sb.Append("  LinkedAccountParams: ").Append(LinkedAccountParams).Append("\n");
+            sb.Append("  RemoteFields: ").Append(RemoteFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +224,12 @@ namespace Merge.CRMClient.Model
                     this.LinkedAccountParams != null &&
                     input.LinkedAccountParams != null &&
                     this.LinkedAccountParams.SequenceEqual(input.LinkedAccountParams)
+                ) && 
+                (
+                    this.RemoteFields == input.RemoteFields ||
+                    this.RemoteFields != null &&
+                    input.RemoteFields != null &&
+                    this.RemoteFields.SequenceEqual(input.RemoteFields)
                 );
         }
 
@@ -245,6 +260,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.IntegrationParams.GetHashCode();
                 if (this.LinkedAccountParams != null)
                     hashCode = hashCode * 59 + this.LinkedAccountParams.GetHashCode();
+                if (this.RemoteFields != null)
+                    hashCode = hashCode * 59 + this.RemoteFields.GetHashCode();
                 return hashCode;
             }
         }

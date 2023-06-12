@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// CustomObject
+    /// # The CustomObject Object ### Description The &#x60;Custom Object&#x60; record refers to an instance of a Custom Object Class. ### Usage Example TODO
     /// </summary>
     [DataContract(Name = "CustomObject")]
     public partial class CustomObject : IEquatable<CustomObject>, IValidatableObject
@@ -87,6 +87,22 @@ namespace Merge.CRMClient.Model
         }
 
         /// <summary>
+        /// This is the datetime that this object was last updated by Merge
+        /// </summary>
+        /// <value>This is the datetime that this object was last updated by Merge</value>
+        [DataMember(Name = "modified_at", EmitDefaultValue = false)]
+        public DateTime ModifiedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as ModifiedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeModifiedAt()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Gets or Sets RemoteFields
         /// </summary>
         [DataMember(Name = "remote_fields", EmitDefaultValue = false)]
@@ -113,6 +129,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("  RemoteId: ").Append(RemoteId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("  RemoteFields: ").Append(RemoteFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -170,6 +187,11 @@ namespace Merge.CRMClient.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.ModifiedAt == input.ModifiedAt ||
+                    (this.ModifiedAt != null &&
+                    this.ModifiedAt.Equals(input.ModifiedAt))
+                ) && 
+                (
                     this.RemoteFields == input.RemoteFields ||
                     this.RemoteFields != null &&
                     input.RemoteFields != null &&
@@ -194,6 +216,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.RemoteId.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.ModifiedAt != null)
+                    hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 if (this.RemoteFields != null)
                     hashCode = hashCode * 59 + this.RemoteFields.GetHashCode();
                 return hashCode;

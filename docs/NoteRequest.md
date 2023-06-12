@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Opportunity** | **Guid?** | The note&#39;s opportunity. | [optional] 
 **IntegrationParams** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
 **LinkedAccountParams** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
+**RemoteFields** | [**List&lt;RemoteFieldRequest&gt;**](RemoteFieldRequest.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -65,8 +65,7 @@ namespace Merge.CRMClient.Test.Api
             //string xAccountToken = null;
             //Guid modelId = null;
             //IgnoreCommonModelRequest ignoreCommonModelRequest = null;
-            //var response = instance.UsersIgnoreCreate(xAccountToken, modelId, ignoreCommonModelRequest);
-            //Assert.IsType<IgnoreCommonModel>(response);
+            //instance.UsersIgnoreCreate(xAccountToken, modelId, ignoreCommonModelRequest);
         }
 
         /// <summary>

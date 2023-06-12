@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.OpportunityStatusEnum
+* `OPEN` - OPEN * `WON` - WON * `LOST` - LOST
 
 ## Properties
 

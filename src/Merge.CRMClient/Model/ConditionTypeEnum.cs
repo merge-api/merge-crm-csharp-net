@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines ConditionTypeEnum
+    /// * &#x60;BOOLEAN&#x60; - BOOLEAN * &#x60;DATE&#x60; - DATE * &#x60;DATE_TIME&#x60; - DATE_TIME * &#x60;INTEGER&#x60; - INTEGER * &#x60;FLOAT&#x60; - FLOAT * &#x60;STRING&#x60; - STRING * &#x60;LIST_OF_STRINGS&#x60; - LIST_OF_STRINGS
     /// </summary>
+    /// <value>* &#x60;BOOLEAN&#x60; - BOOLEAN * &#x60;DATE&#x60; - DATE * &#x60;DATE_TIME&#x60; - DATE_TIME * &#x60;INTEGER&#x60; - INTEGER * &#x60;FLOAT&#x60; - FLOAT * &#x60;STRING&#x60; - STRING * &#x60;LIST_OF_STRINGS&#x60; - LIST_OF_STRINGS</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum ConditionTypeEnum
     {

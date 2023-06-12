@@ -34,8 +34,9 @@ namespace Merge.CRMClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED
         /// </summary>
+        /// <value>Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public IssueStatusEnum? Status { get; set; }
         /// <summary>
@@ -46,7 +47,7 @@ namespace Merge.CRMClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
+        /// <param name="status">Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED.</param>
         /// <param name="errorDescription">errorDescription (required).</param>
         /// <param name="firstIncidentTime">firstIncidentTime.</param>
         /// <param name="lastIncidentTime">lastIncidentTime.</param>

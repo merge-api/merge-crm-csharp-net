@@ -56,6 +56,21 @@ namespace Merge.CRMClient.Test.Api
         }
 
         /// <summary>
+        /// Test TasksCreate
+        /// </summary>
+        [Fact]
+        public void TasksCreateTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string xAccountToken = null;
+            //TaskEndpointRequest taskEndpointRequest = null;
+            //bool? isDebugMode = null;
+            //bool? runAsync = null;
+            //var response = instance.TasksCreate(xAccountToken, taskEndpointRequest, isDebugMode, runAsync);
+            //Assert.IsType<TaskResponse>(response);
+        }
+
+        /// <summary>
         /// Test TasksList
         /// </summary>
         [Fact]
@@ -75,6 +90,47 @@ namespace Merge.CRMClient.Test.Api
             //string remoteId = null;
             //var response = instance.TasksList(xAccountToken, createdAfter, createdBefore, cursor, includeDeletedData, includeRemoteData, includeRemoteFields, modifiedAfter, modifiedBefore, pageSize, remoteId);
             //Assert.IsType<PaginatedTaskList>(response);
+        }
+
+        /// <summary>
+        /// Test TasksMetaPatchRetrieve
+        /// </summary>
+        [Fact]
+        public void TasksMetaPatchRetrieveTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string xAccountToken = null;
+            //Guid id = null;
+            //var response = instance.TasksMetaPatchRetrieve(xAccountToken, id);
+            //Assert.IsType<MetaResponse>(response);
+        }
+
+        /// <summary>
+        /// Test TasksMetaPostRetrieve
+        /// </summary>
+        [Fact]
+        public void TasksMetaPostRetrieveTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string xAccountToken = null;
+            //var response = instance.TasksMetaPostRetrieve(xAccountToken);
+            //Assert.IsType<MetaResponse>(response);
+        }
+
+        /// <summary>
+        /// Test TasksPartialUpdate
+        /// </summary>
+        [Fact]
+        public void TasksPartialUpdateTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string xAccountToken = null;
+            //Guid id = null;
+            //PatchedTaskEndpointRequest patchedTaskEndpointRequest = null;
+            //bool? isDebugMode = null;
+            //bool? runAsync = null;
+            //var response = instance.TasksPartialUpdate(xAccountToken, id, patchedTaskEndpointRequest, isDebugMode, runAsync);
+            //Assert.IsType<TaskResponse>(response);
         }
 
         /// <summary>

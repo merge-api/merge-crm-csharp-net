@@ -34,9 +34,9 @@ namespace Merge.CRMClient.Model
     {
 
         /// <summary>
-        /// The engagement&#39;s direction.
+        /// The engagement&#39;s direction.  * &#x60;INBOUND&#x60; - INBOUND * &#x60;OUTBOUND&#x60; - OUTBOUND
         /// </summary>
-        /// <value>The engagement&#39;s direction.</value>
+        /// <value>The engagement&#39;s direction.  * &#x60;INBOUND&#x60; - INBOUND * &#x60;OUTBOUND&#x60; - OUTBOUND</value>
         [DataMember(Name = "direction", EmitDefaultValue = true)]
         public DirectionEnum? Direction { get; set; }
         /// <summary>
@@ -45,7 +45,7 @@ namespace Merge.CRMClient.Model
         /// <param name="owner">The engagement&#39;s owner..</param>
         /// <param name="content">The engagement&#39;s content..</param>
         /// <param name="subject">The engagement&#39;s subject..</param>
-        /// <param name="direction">The engagement&#39;s direction..</param>
+        /// <param name="direction">The engagement&#39;s direction.  * &#x60;INBOUND&#x60; - INBOUND * &#x60;OUTBOUND&#x60; - OUTBOUND.</param>
         /// <param name="engagementType">The engagement type of the engagement..</param>
         /// <param name="startTime">The time at which the engagement started..</param>
         /// <param name="endTime">The time at which the engagement ended..</param>
@@ -53,7 +53,8 @@ namespace Merge.CRMClient.Model
         /// <param name="contacts">contacts.</param>
         /// <param name="integrationParams">integrationParams.</param>
         /// <param name="linkedAccountParams">linkedAccountParams.</param>
-        public PatchedEngagementRequest(Guid? owner = default(Guid?), string content = default(string), string subject = default(string), DirectionEnum? direction = default(DirectionEnum?), Guid? engagementType = default(Guid?), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), Guid? account = default(Guid?), List<Guid?> contacts = default(List<Guid?>), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>))
+        /// <param name="remoteFields">remoteFields.</param>
+        public PatchedEngagementRequest(Guid? owner = default(Guid?), string content = default(string), string subject = default(string), DirectionEnum? direction = default(DirectionEnum?), Guid? engagementType = default(Guid?), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), Guid? account = default(Guid?), List<Guid?> contacts = default(List<Guid?>), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>), List<RemoteFieldRequest> remoteFields = default(List<RemoteFieldRequest>))
         {
             this.Owner = owner;
             this.Content = content;
@@ -66,6 +67,7 @@ namespace Merge.CRMClient.Model
             this.Contacts = contacts;
             this.IntegrationParams = integrationParams;
             this.LinkedAccountParams = linkedAccountParams;
+            this.RemoteFields = remoteFields;
         }
 
         /// <summary>
@@ -136,6 +138,12 @@ namespace Merge.CRMClient.Model
         public Dictionary<string, Object> LinkedAccountParams { get; set; }
 
         /// <summary>
+        /// Gets or Sets RemoteFields
+        /// </summary>
+        [DataMember(Name = "remote_fields", EmitDefaultValue = false)]
+        public List<RemoteFieldRequest> RemoteFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -154,6 +162,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  Contacts: ").Append(Contacts).Append("\n");
             sb.Append("  IntegrationParams: ").Append(IntegrationParams).Append("\n");
             sb.Append("  LinkedAccountParams: ").Append(LinkedAccountParams).Append("\n");
+            sb.Append("  RemoteFields: ").Append(RemoteFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -244,6 +253,12 @@ namespace Merge.CRMClient.Model
                     this.LinkedAccountParams != null &&
                     input.LinkedAccountParams != null &&
                     this.LinkedAccountParams.SequenceEqual(input.LinkedAccountParams)
+                ) && 
+                (
+                    this.RemoteFields == input.RemoteFields ||
+                    this.RemoteFields != null &&
+                    input.RemoteFields != null &&
+                    this.RemoteFields.SequenceEqual(input.RemoteFields)
                 );
         }
 
@@ -277,6 +292,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.IntegrationParams.GetHashCode();
                 if (this.LinkedAccountParams != null)
                     hashCode = hashCode * 59 + this.LinkedAccountParams.GetHashCode();
+                if (this.RemoteFields != null)
+                    hashCode = hashCode * 59 + this.RemoteFields.GetHashCode();
                 return hashCode;
             }
         }

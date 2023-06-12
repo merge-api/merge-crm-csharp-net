@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **IsCustom** | **bool** |  | [optional] 
 **IsRequired** | **bool** |  | [optional] 
-**FieldType** | **bool** |  | [optional] 
-**FieldFormat** | **bool** |  | [optional] 
+**FieldType** | **FieldTypeEnum** |  | [optional] 
+**FieldFormat** | **FieldFormatEnum** |  | [optional] 
 **FieldChoices** | **List&lt;string&gt;** |  | [optional] 
 **ItemSchema** | [**ItemSchema**](ItemSchema.md) |  | [optional] 
 

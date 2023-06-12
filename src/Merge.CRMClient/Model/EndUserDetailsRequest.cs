@@ -118,7 +118,7 @@ namespace Merge.CRMClient.Model
         /// An array of objects to specify the models and fields that will be disabled for a given Linked Account. Each object uses model_id, enabled_actions, and disabled_fields to specify the model, method, and fields that are scoped for a given Linked Account.
         /// </summary>
         /// <value>An array of objects to specify the models and fields that will be disabled for a given Linked Account. Each object uses model_id, enabled_actions, and disabled_fields to specify the model, method, and fields that are scoped for a given Linked Account.</value>
-        [DataMember(Name = "common_models", EmitDefaultValue = false)]
+        [DataMember(Name = "common_models", EmitDefaultValue = true)]
         public List<CommonModelScopesBodyRequest> CommonModels { get; set; }
 
         /// <summary>

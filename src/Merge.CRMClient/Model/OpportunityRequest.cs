@@ -34,9 +34,9 @@ namespace Merge.CRMClient.Model
     {
 
         /// <summary>
-        /// The opportunity&#39;s status.
+        /// The opportunity&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;WON&#x60; - WON * &#x60;LOST&#x60; - LOST
         /// </summary>
-        /// <value>The opportunity&#39;s status.</value>
+        /// <value>The opportunity&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;WON&#x60; - WON * &#x60;LOST&#x60; - LOST</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public OpportunityStatusEnum? Status { get; set; }
         /// <summary>
@@ -48,12 +48,13 @@ namespace Merge.CRMClient.Model
         /// <param name="owner">The opportunity&#39;s owner..</param>
         /// <param name="account">The account of the opportunity..</param>
         /// <param name="stage">The stage of the opportunity..</param>
-        /// <param name="status">The opportunity&#39;s status..</param>
+        /// <param name="status">The opportunity&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;WON&#x60; - WON * &#x60;LOST&#x60; - LOST.</param>
         /// <param name="lastActivityAt">When the opportunity&#39;s last activity occurred..</param>
         /// <param name="closeDate">When the opportunity was closed..</param>
         /// <param name="integrationParams">integrationParams.</param>
         /// <param name="linkedAccountParams">linkedAccountParams.</param>
-        public OpportunityRequest(string name = default(string), string description = default(string), int? amount = default(int?), Guid? owner = default(Guid?), Guid? account = default(Guid?), Guid? stage = default(Guid?), OpportunityStatusEnum? status = default(OpportunityStatusEnum?), DateTime? lastActivityAt = default(DateTime?), DateTime? closeDate = default(DateTime?), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>))
+        /// <param name="remoteFields">remoteFields.</param>
+        public OpportunityRequest(string name = default(string), string description = default(string), int? amount = default(int?), Guid? owner = default(Guid?), Guid? account = default(Guid?), Guid? stage = default(Guid?), OpportunityStatusEnum? status = default(OpportunityStatusEnum?), DateTime? lastActivityAt = default(DateTime?), DateTime? closeDate = default(DateTime?), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>), List<RemoteFieldRequest> remoteFields = default(List<RemoteFieldRequest>))
         {
             this.Name = name;
             this.Description = description;
@@ -66,6 +67,7 @@ namespace Merge.CRMClient.Model
             this.CloseDate = closeDate;
             this.IntegrationParams = integrationParams;
             this.LinkedAccountParams = linkedAccountParams;
+            this.RemoteFields = remoteFields;
         }
 
         /// <summary>
@@ -137,6 +139,12 @@ namespace Merge.CRMClient.Model
         public Dictionary<string, Object> LinkedAccountParams { get; set; }
 
         /// <summary>
+        /// Gets or Sets RemoteFields
+        /// </summary>
+        [DataMember(Name = "remote_fields", EmitDefaultValue = false)]
+        public List<RemoteFieldRequest> RemoteFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +163,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  CloseDate: ").Append(CloseDate).Append("\n");
             sb.Append("  IntegrationParams: ").Append(IntegrationParams).Append("\n");
             sb.Append("  LinkedAccountParams: ").Append(LinkedAccountParams).Append("\n");
+            sb.Append("  RemoteFields: ").Append(RemoteFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -244,6 +253,12 @@ namespace Merge.CRMClient.Model
                     this.LinkedAccountParams != null &&
                     input.LinkedAccountParams != null &&
                     this.LinkedAccountParams.SequenceEqual(input.LinkedAccountParams)
+                ) && 
+                (
+                    this.RemoteFields == input.RemoteFields ||
+                    this.RemoteFields != null &&
+                    input.RemoteFields != null &&
+                    this.RemoteFields.SequenceEqual(input.RemoteFields)
                 );
         }
 
@@ -277,6 +292,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.IntegrationParams.GetHashCode();
                 if (this.LinkedAccountParams != null)
                     hashCode = hashCode * 59 + this.LinkedAccountParams.GetHashCode();
+                if (this.RemoteFields != null)
+                    hashCode = hashCode * 59 + this.RemoteFields.GetHashCode();
                 return hashCode;
             }
         }

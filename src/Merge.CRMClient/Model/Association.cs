@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Association
+    /// # The Association Object ### Description The &#x60;Association&#x60; record refers to an instance of an Association Type. ### Usage Example TODO
     /// </summary>
     [DataContract(Name = "Association")]
     public partial class Association : IEquatable<Association>, IValidatableObject
@@ -78,6 +78,22 @@ namespace Merge.CRMClient.Model
         public Guid? AssociationType { get; set; }
 
         /// <summary>
+        /// This is the datetime that this object was last updated by Merge
+        /// </summary>
+        /// <value>This is the datetime that this object was last updated by Merge</value>
+        [DataMember(Name = "modified_at", EmitDefaultValue = false)]
+        public DateTime ModifiedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as ModifiedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeModifiedAt()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +104,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  SourceObject: ").Append(SourceObject).Append("\n");
             sb.Append("  TargetObject: ").Append(TargetObject).Append("\n");
             sb.Append("  AssociationType: ").Append(AssociationType).Append("\n");
+            sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +155,11 @@ namespace Merge.CRMClient.Model
                     this.AssociationType == input.AssociationType ||
                     (this.AssociationType != null &&
                     this.AssociationType.Equals(input.AssociationType))
+                ) && 
+                (
+                    this.ModifiedAt == input.ModifiedAt ||
+                    (this.ModifiedAt != null &&
+                    this.ModifiedAt.Equals(input.ModifiedAt))
                 );
         }
 
@@ -156,6 +178,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.TargetObject.GetHashCode();
                 if (this.AssociationType != null)
                     hashCode = hashCode * 59 + this.AssociationType.GetHashCode();
+                if (this.ModifiedAt != null)
+                    hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 return hashCode;
             }
         }

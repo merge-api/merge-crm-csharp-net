@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines RequestFormatEnum
+    /// * &#x60;JSON&#x60; - JSON * &#x60;XML&#x60; - XML * &#x60;MULTIPART&#x60; - MULTIPART
     /// </summary>
+    /// <value>* &#x60;JSON&#x60; - JSON * &#x60;XML&#x60; - XML * &#x60;MULTIPART&#x60; - MULTIPART</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum RequestFormatEnum
     {

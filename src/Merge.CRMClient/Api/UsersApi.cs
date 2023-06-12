@@ -37,8 +37,8 @@ namespace Merge.CRMClient.Api
         /// <param name="xAccountToken">Token identifying the end user.</param>
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
-        /// <returns>IgnoreCommonModel</returns>
-        IgnoreCommonModel UsersIgnoreCreate(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest);
+        /// <returns></returns>
+        void UsersIgnoreCreate(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest);
 
         /// <summary>
         /// 
@@ -50,8 +50,8 @@ namespace Merge.CRMClient.Api
         /// <param name="xAccountToken">Token identifying the end user.</param>
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
-        /// <returns>ApiResponse of IgnoreCommonModel</returns>
-        ApiResponse<IgnoreCommonModel> UsersIgnoreCreateWithHttpInfo(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UsersIgnoreCreateWithHttpInfo(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest);
         /// <summary>
         /// 
         /// </summary>
@@ -66,8 +66,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>PaginatedUserList</returns>
@@ -87,8 +87,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>ApiResponse of PaginatedUserList</returns>
@@ -171,8 +171,8 @@ namespace Merge.CRMClient.Api
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IgnoreCommonModel</returns>
-        System.Threading.Tasks.Task<IgnoreCommonModel> UsersIgnoreCreateAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UsersIgnoreCreateAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -185,8 +185,8 @@ namespace Merge.CRMClient.Api
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IgnoreCommonModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IgnoreCommonModel>> UsersIgnoreCreateWithHttpInfoAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UsersIgnoreCreateWithHttpInfoAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -201,8 +201,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -223,8 +223,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -419,11 +419,10 @@ namespace Merge.CRMClient.Api
         /// <param name="xAccountToken">Token identifying the end user.</param>
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
-        /// <returns>IgnoreCommonModel</returns>
-        public IgnoreCommonModel UsersIgnoreCreate(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest)
+        /// <returns></returns>
+        public void UsersIgnoreCreate(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest)
         {
-            Merge.CRMClient.Client.ApiResponse<IgnoreCommonModel> localVarResponse = UsersIgnoreCreateWithHttpInfo(xAccountToken, modelId, ignoreCommonModelRequest);
-            return localVarResponse.Data;
+            UsersIgnoreCreateWithHttpInfo(xAccountToken, modelId, ignoreCommonModelRequest);
         }
 
         /// <summary>
@@ -433,8 +432,8 @@ namespace Merge.CRMClient.Api
         /// <param name="xAccountToken">Token identifying the end user.</param>
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
-        /// <returns>ApiResponse of IgnoreCommonModel</returns>
-        public Merge.CRMClient.Client.ApiResponse<IgnoreCommonModel> UsersIgnoreCreateWithHttpInfo(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Merge.CRMClient.Client.ApiResponse<Object> UsersIgnoreCreateWithHttpInfo(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest)
         {
             // verify the required parameter 'xAccountToken' is set
             if (xAccountToken == null)
@@ -454,7 +453,6 @@ namespace Merge.CRMClient.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json"
             };
 
             var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -474,7 +472,7 @@ namespace Merge.CRMClient.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<IgnoreCommonModel>("/users/ignore/{model_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Object>("/users/ignore/{model_id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -493,11 +491,10 @@ namespace Merge.CRMClient.Api
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IgnoreCommonModel</returns>
-        public async System.Threading.Tasks.Task<IgnoreCommonModel> UsersIgnoreCreateAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UsersIgnoreCreateAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Merge.CRMClient.Client.ApiResponse<IgnoreCommonModel> localVarResponse = await UsersIgnoreCreateWithHttpInfoAsync(xAccountToken, modelId, ignoreCommonModelRequest, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await UsersIgnoreCreateWithHttpInfoAsync(xAccountToken, modelId, ignoreCommonModelRequest, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -508,8 +505,8 @@ namespace Merge.CRMClient.Api
         /// <param name="modelId"></param>
         /// <param name="ignoreCommonModelRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IgnoreCommonModel)</returns>
-        public async System.Threading.Tasks.Task<Merge.CRMClient.Client.ApiResponse<IgnoreCommonModel>> UsersIgnoreCreateWithHttpInfoAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Merge.CRMClient.Client.ApiResponse<Object>> UsersIgnoreCreateWithHttpInfoAsync(string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'xAccountToken' is set
             if (xAccountToken == null)
@@ -530,7 +527,6 @@ namespace Merge.CRMClient.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json"
             };
 
 
@@ -552,7 +548,7 @@ namespace Merge.CRMClient.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<IgnoreCommonModel>("/users/ignore/{model_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/users/ignore/{model_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -574,8 +570,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>PaginatedUserList</returns>
@@ -596,8 +592,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>ApiResponse of PaginatedUserList</returns>
@@ -694,8 +690,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -717,8 +713,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

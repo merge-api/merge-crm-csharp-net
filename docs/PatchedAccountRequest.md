@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **LastActivityAt** | **DateTime?** | The last date (either most recent or furthest in the future) of when an activity occurs in an account. | [optional] 
 **IntegrationParams** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
 **LinkedAccountParams** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
+**RemoteFields** | [**List&lt;RemoteFieldRequest&gt;**](RemoteFieldRequest.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

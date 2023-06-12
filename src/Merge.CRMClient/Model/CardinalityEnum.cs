@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines CardinalityEnum
+    /// * &#x60;ONE_TO_ONE&#x60; - ONE_TO_ONE * &#x60;MANY_TO_ONE&#x60; - MANY_TO_ONE * &#x60;MANY_TO_MANY&#x60; - MANY_TO_MANY * &#x60;ONE_TO_MANY&#x60; - ONE_TO_MANY
     /// </summary>
+    /// <value>* &#x60;ONE_TO_ONE&#x60; - ONE_TO_ONE * &#x60;MANY_TO_ONE&#x60; - MANY_TO_ONE * &#x60;MANY_TO_MANY&#x60; - MANY_TO_MANY * &#x60;ONE_TO_MANY&#x60; - ONE_TO_MANY</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CardinalityEnum
     {

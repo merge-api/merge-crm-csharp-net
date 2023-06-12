@@ -32,6 +32,18 @@ namespace Merge.CRMClient.Model
     [DataContract(Name = "RemoteFieldClass")]
     public partial class RemoteFieldClass : IEquatable<RemoteFieldClass>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets FieldType
+        /// </summary>
+        [DataMember(Name = "field_type", EmitDefaultValue = false)]
+        public FieldTypeEnum? FieldType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FieldFormat
+        /// </summary>
+        [DataMember(Name = "field_format", EmitDefaultValue = false)]
+        public FieldFormatEnum? FieldFormat { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="RemoteFieldClass" /> class.
         /// </summary>
@@ -45,7 +57,7 @@ namespace Merge.CRMClient.Model
         /// <param name="fieldFormat">fieldFormat.</param>
         /// <param name="fieldChoices">fieldChoices.</param>
         /// <param name="itemSchema">itemSchema.</param>
-        public RemoteFieldClass(string id = default(string), string displayName = default(string), string remoteKeyName = default(string), string description = default(string), bool isCustom = default(bool), bool isRequired = default(bool), bool fieldType = default(bool), bool fieldFormat = default(bool), List<string> fieldChoices = default(List<string>), ItemSchema itemSchema = default(ItemSchema))
+        public RemoteFieldClass(string id = default(string), string displayName = default(string), string remoteKeyName = default(string), string description = default(string), bool isCustom = default(bool), bool isRequired = default(bool), FieldTypeEnum? fieldType = default(FieldTypeEnum?), FieldFormatEnum? fieldFormat = default(FieldFormatEnum?), List<string> fieldChoices = default(List<string>), ItemSchema itemSchema = default(ItemSchema))
         {
             this.Id = id;
             this.DisplayName = displayName;
@@ -94,18 +106,6 @@ namespace Merge.CRMClient.Model
         /// </summary>
         [DataMember(Name = "is_required", EmitDefaultValue = true)]
         public bool IsRequired { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FieldType
-        /// </summary>
-        [DataMember(Name = "field_type", EmitDefaultValue = true)]
-        public bool FieldType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FieldFormat
-        /// </summary>
-        [DataMember(Name = "field_format", EmitDefaultValue = true)]
-        public bool FieldFormat { get; set; }
 
         /// <summary>
         /// Gets or Sets FieldChoices

@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.IssueStatusEnum
+* `ONGOING` - ONGOING * `RESOLVED` - RESOLVED
 
 ## Properties
 

@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.TaskStatusEnum
+* `OPEN` - OPEN * `CLOSED` - CLOSED
 
 ## Properties
 

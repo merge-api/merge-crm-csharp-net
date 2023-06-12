@@ -34,9 +34,9 @@ namespace Merge.CRMClient.Model
     {
 
         /// <summary>
-        /// The task&#39;s status.
+        /// The task&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;CLOSED&#x60; - CLOSED
         /// </summary>
-        /// <value>The task&#39;s status.</value>
+        /// <value>The task&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;CLOSED&#x60; - CLOSED</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public TaskStatusEnum? Status { get; set; }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Merge.CRMClient.Model
         /// <param name="account">The task&#39;s account..</param>
         /// <param name="completedDate">When the task is completed..</param>
         /// <param name="dueDate">When the task is due..</param>
-        /// <param name="status">The task&#39;s status..</param>
+        /// <param name="status">The task&#39;s status.  * &#x60;OPEN&#x60; - OPEN * &#x60;CLOSED&#x60; - CLOSED.</param>
         /// <param name="remoteId">The third-party API ID of the matching object..</param>
         public Task(string subject = default(string), string content = default(string), Guid? owner = default(Guid?), Guid? account = default(Guid?), DateTime? completedDate = default(DateTime?), DateTime? dueDate = default(DateTime?), TaskStatusEnum? status = default(TaskStatusEnum?), string remoteId = default(string))
         {
@@ -158,6 +158,22 @@ namespace Merge.CRMClient.Model
         }
 
         /// <summary>
+        /// This is the datetime that this object was last updated by Merge
+        /// </summary>
+        /// <value>This is the datetime that this object was last updated by Merge</value>
+        [DataMember(Name = "modified_at", EmitDefaultValue = false)]
+        public DateTime ModifiedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as ModifiedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeModifiedAt()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Gets or Sets RemoteData
         /// </summary>
         [DataMember(Name = "remote_data", EmitDefaultValue = true)]
@@ -206,6 +222,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  RemoteId: ").Append(RemoteId).Append("\n");
             sb.Append("  FieldMappings: ").Append(FieldMappings).Append("\n");
+            sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("  RemoteData: ").Append(RemoteData).Append("\n");
             sb.Append("  RemoteFields: ").Append(RemoteFields).Append("\n");
             sb.Append("}\n");
@@ -297,6 +314,11 @@ namespace Merge.CRMClient.Model
                     this.FieldMappings.SequenceEqual(input.FieldMappings)
                 ) && 
                 (
+                    this.ModifiedAt == input.ModifiedAt ||
+                    (this.ModifiedAt != null &&
+                    this.ModifiedAt.Equals(input.ModifiedAt))
+                ) && 
+                (
                     this.RemoteData == input.RemoteData ||
                     this.RemoteData != null &&
                     input.RemoteData != null &&
@@ -339,6 +361,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.RemoteId.GetHashCode();
                 if (this.FieldMappings != null)
                     hashCode = hashCode * 59 + this.FieldMappings.GetHashCode();
+                if (this.ModifiedAt != null)
+                    hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 if (this.RemoteData != null)
                     hashCode = hashCode * 59 + this.RemoteData.GetHashCode();
                 if (this.RemoteFields != null)

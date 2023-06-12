@@ -35,32 +35,40 @@ namespace Merge.CRMClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RemoteFieldClassForCustomObjectClassItemSchema" /> class.
         /// </summary>
-        /// <param name="itemType">itemType.</param>
-        /// <param name="itemFormat">itemFormat.</param>
-        /// <param name="itemChoices">itemChoices.</param>
+        [JsonConstructorAttribute]
+        protected RemoteFieldClassForCustomObjectClassItemSchema() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RemoteFieldClassForCustomObjectClassItemSchema" /> class.
+        /// </summary>
+        /// <param name="itemType">itemType (required).</param>
+        /// <param name="itemFormat">itemFormat (required).</param>
+        /// <param name="itemChoices">itemChoices (required).</param>
         public RemoteFieldClassForCustomObjectClassItemSchema(string itemType = default(string), string itemFormat = default(string), List<string> itemChoices = default(List<string>))
         {
-            this.ItemType = itemType;
-            this.ItemFormat = itemFormat;
-            this.ItemChoices = itemChoices;
+            // to ensure "itemType" is required (not null)
+            this.ItemType = itemType ?? throw new ArgumentNullException("itemType is a required property for RemoteFieldClassForCustomObjectClassItemSchema and cannot be null");
+            // to ensure "itemFormat" is required (not null)
+            this.ItemFormat = itemFormat ?? throw new ArgumentNullException("itemFormat is a required property for RemoteFieldClassForCustomObjectClassItemSchema and cannot be null");
+            // to ensure "itemChoices" is required (not null)
+            this.ItemChoices = itemChoices ?? throw new ArgumentNullException("itemChoices is a required property for RemoteFieldClassForCustomObjectClassItemSchema and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets ItemType
         /// </summary>
-        [DataMember(Name = "item_type", EmitDefaultValue = true)]
+        [DataMember(Name = "item_type", IsRequired = true, EmitDefaultValue = true)]
         public string ItemType { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemFormat
         /// </summary>
-        [DataMember(Name = "item_format", EmitDefaultValue = true)]
+        [DataMember(Name = "item_format", IsRequired = true, EmitDefaultValue = true)]
         public string ItemFormat { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemChoices
         /// </summary>
-        [DataMember(Name = "item_choices", EmitDefaultValue = true)]
+        [DataMember(Name = "item_choices", IsRequired = true, EmitDefaultValue = true)]
         public List<string> ItemChoices { get; set; }
 
         /// <summary>

@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.ResponseTypeEnum
+* `JSON` - JSON * `BASE64_GZIP` - BASE64_GZIP
 
 ## Properties
 

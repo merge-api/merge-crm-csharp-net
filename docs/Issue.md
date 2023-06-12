@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** |  | [optional] [readonly] 
-**Status** | **IssueStatusEnum** |  | [optional] 
+**Status** | **IssueStatusEnum** | Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED | [optional] 
 **ErrorDescription** | **string** |  | 
 **EndUser** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **FirstIncidentTime** | **DateTime?** |  | [optional] 

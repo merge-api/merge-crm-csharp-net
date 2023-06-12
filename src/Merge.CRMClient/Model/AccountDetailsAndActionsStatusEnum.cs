@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines AccountDetailsAndActionsStatusEnum
+    /// * &#x60;COMPLETE&#x60; - COMPLETE * &#x60;INCOMPLETE&#x60; - INCOMPLETE * &#x60;RELINK_NEEDED&#x60; - RELINK_NEEDED
     /// </summary>
+    /// <value>* &#x60;COMPLETE&#x60; - COMPLETE * &#x60;INCOMPLETE&#x60; - INCOMPLETE * &#x60;RELINK_NEEDED&#x60; - RELINK_NEEDED</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AccountDetailsAndActionsStatusEnum
     {
