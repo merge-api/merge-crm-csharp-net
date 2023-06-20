@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="usersignorecreate"></a>
 # **UsersIgnoreCreate**
-> IgnoreCommonModel UsersIgnoreCreate (string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest)
+> void UsersIgnoreCreate (string xAccountToken, Guid modelId, IgnoreCommonModelRequest ignoreCommonModelRequest)
 
 
 
@@ -46,8 +46,7 @@ namespace Example
 
             try
             {
-                IgnoreCommonModel result = apiInstance.UsersIgnoreCreate(xAccountToken, modelId, ignoreCommonModelRequest);
-                Debug.WriteLine(result);
+                apiInstance.UsersIgnoreCreate(xAccountToken, modelId, ignoreCommonModelRequest);
             }
             catch (ApiException  e)
             {
@@ -70,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IgnoreCommonModel**](IgnoreCommonModel.md)
+void (empty response body)
 
 ### Authorization
 
@@ -79,13 +78,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -126,8 +125,8 @@ namespace Example
             var includeDeletedData = true;  // bool? | Whether to include data that was marked as deleted by third party webhooks. (optional) 
             var includeRemoteData = true;  // bool? | Whether to include the original data Merge fetched from the third-party to produce these models. (optional) 
             var includeRemoteFields = true;  // bool? | Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional) 
-            var modifiedAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, will only return objects modified after this datetime. (optional) 
-            var modifiedBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, will only return objects modified before this datetime. (optional) 
+            var modifiedAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, only objects synced by Merge after this date time will be returned. (optional) 
+            var modifiedBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, only objects synced by Merge before this date time will be returned. (optional) 
             var pageSize = 56;  // int? | Number of results to return per page. (optional) 
             var remoteId = remoteId_example;  // string | The API provider's ID for the given object. (optional) 
 
@@ -158,8 +157,8 @@ Name | Type | Description  | Notes
  **includeDeletedData** | **bool?**| Whether to include data that was marked as deleted by third party webhooks. | [optional] 
  **includeRemoteData** | **bool?**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] 
  **includeRemoteFields** | **bool?**| Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. | [optional] 
- **modifiedAfter** | **DateTime?**| If provided, will only return objects modified after this datetime. | [optional] 
- **modifiedBefore** | **DateTime?**| If provided, will only return objects modified before this datetime. | [optional] 
+ **modifiedAfter** | **DateTime?**| If provided, only objects synced by Merge after this date time will be returned. | [optional] 
+ **modifiedBefore** | **DateTime?**| If provided, only objects synced by Merge before this date time will be returned. | [optional] 
  **pageSize** | **int?**| Number of results to return per page. | [optional] 
  **remoteId** | **string**| The API provider&#39;s ID for the given object. | [optional] 
 

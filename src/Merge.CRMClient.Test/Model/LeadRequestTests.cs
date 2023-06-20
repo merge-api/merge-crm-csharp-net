@@ -106,6 +106,30 @@ namespace Merge.CRMClient.Test.Model
             // TODO unit test for the property 'LastName'
         }
         /// <summary>
+        /// Test the property 'Addresses'
+        /// </summary>
+        [Fact]
+        public void AddressesTest()
+        {
+            // TODO unit test for the property 'Addresses'
+        }
+        /// <summary>
+        /// Test the property 'EmailAddresses'
+        /// </summary>
+        [Fact]
+        public void EmailAddressesTest()
+        {
+            // TODO unit test for the property 'EmailAddresses'
+        }
+        /// <summary>
+        /// Test the property 'PhoneNumbers'
+        /// </summary>
+        [Fact]
+        public void PhoneNumbersTest()
+        {
+            // TODO unit test for the property 'PhoneNumbers'
+        }
+        /// <summary>
         /// Test the property 'ConvertedDate'
         /// </summary>
         [Fact]
@@ -144,6 +168,14 @@ namespace Merge.CRMClient.Test.Model
         public void LinkedAccountParamsTest()
         {
             // TODO unit test for the property 'LinkedAccountParams'
+        }
+        /// <summary>
+        /// Test the property 'RemoteFields'
+        /// </summary>
+        [Fact]
+        public void RemoteFieldsTest()
+        {
+            // TODO unit test for the property 'RemoteFields'
         }
 
     }

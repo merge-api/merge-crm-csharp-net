@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.DirectionEnum
+* `INBOUND` - INBOUND * `OUTBOUND` - OUTBOUND
 
 ## Properties
 

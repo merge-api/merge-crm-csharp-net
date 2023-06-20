@@ -121,6 +121,14 @@ namespace Merge.CRMClient.Test.Model
         {
             // TODO unit test for the property 'RemoteId'
         }
+        /// <summary>
+        /// Test the property 'ModifiedAt'
+        /// </summary>
+        [Fact]
+        public void ModifiedAtTest()
+        {
+            // TODO unit test for the property 'ModifiedAt'
+        }
 
     }
 

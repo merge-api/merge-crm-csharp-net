@@ -34,8 +34,9 @@ namespace Merge.CRMClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets ConditionType
+        /// The type of value(s) that can be set for this condition.  * &#x60;BOOLEAN&#x60; - BOOLEAN * &#x60;DATE&#x60; - DATE * &#x60;DATE_TIME&#x60; - DATE_TIME * &#x60;INTEGER&#x60; - INTEGER * &#x60;FLOAT&#x60; - FLOAT * &#x60;STRING&#x60; - STRING * &#x60;LIST_OF_STRINGS&#x60; - LIST_OF_STRINGS
         /// </summary>
+        /// <value>The type of value(s) that can be set for this condition.  * &#x60;BOOLEAN&#x60; - BOOLEAN * &#x60;DATE&#x60; - DATE * &#x60;DATE_TIME&#x60; - DATE_TIME * &#x60;INTEGER&#x60; - INTEGER * &#x60;FLOAT&#x60; - FLOAT * &#x60;STRING&#x60; - STRING * &#x60;LIST_OF_STRINGS&#x60; - LIST_OF_STRINGS</value>
         [DataMember(Name = "condition_type", IsRequired = true, EmitDefaultValue = false)]
         public ConditionTypeEnum ConditionType { get; set; }
         /// <summary>
@@ -50,7 +51,7 @@ namespace Merge.CRMClient.Model
         /// <param name="nativeName">User-facing *native condition* name. e.g. \&quot;Skip Manager\&quot;. (required).</param>
         /// <param name="fieldName">The name of the field on the common model that this condition corresponds to, if they conceptually match. e.g. \&quot;location_type\&quot;. (required).</param>
         /// <param name="isUnique">Whether this condition can only be applied once. If false, the condition can be AND&#39;d together multiple times..</param>
-        /// <param name="conditionType">conditionType (required).</param>
+        /// <param name="conditionType">The type of value(s) that can be set for this condition.  * &#x60;BOOLEAN&#x60; - BOOLEAN * &#x60;DATE&#x60; - DATE * &#x60;DATE_TIME&#x60; - DATE_TIME * &#x60;INTEGER&#x60; - INTEGER * &#x60;FLOAT&#x60; - FLOAT * &#x60;STRING&#x60; - STRING * &#x60;LIST_OF_STRINGS&#x60; - LIST_OF_STRINGS (required).</param>
         /// <param name="operators">The schemas for the operators that can be used on a condition. (required).</param>
         public ConditionSchema(Guid id = default(Guid), string nativeName = default(string), string fieldName = default(string), bool isUnique = default(bool), ConditionTypeEnum conditionType = default(ConditionTypeEnum), List<OperatorSchema> operators = default(List<OperatorSchema>))
         {

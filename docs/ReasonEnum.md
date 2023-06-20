@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.ReasonEnum
+* `GENERAL_CUSTOMER_REQUEST` - GENERAL_CUSTOMER_REQUEST * `GDPR` - GDPR * `OTHER` - OTHER
 
 ## Properties
 

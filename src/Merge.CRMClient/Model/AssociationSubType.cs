@@ -71,6 +71,22 @@ namespace Merge.CRMClient.Model
         }
 
         /// <summary>
+        /// This is the datetime that this object was last updated by Merge
+        /// </summary>
+        /// <value>This is the datetime that this object was last updated by Merge</value>
+        [DataMember(Name = "modified_at", EmitDefaultValue = false)]
+        public DateTime ModifiedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as ModifiedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeModifiedAt()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,6 +96,7 @@ namespace Merge.CRMClient.Model
             sb.Append("class AssociationSubType {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  OriginType: ").Append(OriginType).Append("\n");
+            sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +140,11 @@ namespace Merge.CRMClient.Model
                     this.OriginType == input.OriginType ||
                     (this.OriginType != null &&
                     this.OriginType.Equals(input.OriginType))
+                ) && 
+                (
+                    this.ModifiedAt == input.ModifiedAt ||
+                    (this.ModifiedAt != null &&
+                    this.ModifiedAt.Equals(input.ModifiedAt))
                 );
         }
 
@@ -139,6 +161,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.OriginType != null)
                     hashCode = hashCode * 59 + this.OriginType.GetHashCode();
+                if (this.ModifiedAt != null)
+                    hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 return hashCode;
             }
         }

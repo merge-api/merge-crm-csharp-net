@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines TaskStatusEnum
+    /// * &#x60;OPEN&#x60; - OPEN * &#x60;CLOSED&#x60; - CLOSED
     /// </summary>
+    /// <value>* &#x60;OPEN&#x60; - OPEN * &#x60;CLOSED&#x60; - CLOSED</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum TaskStatusEnum
     {

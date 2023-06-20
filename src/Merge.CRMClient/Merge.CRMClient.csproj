@@ -6,13 +6,13 @@
     <AssemblyName>Merge.CRMClient</AssemblyName>
     <PackageId>Merge.CRMClient</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
-    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
+    <Authors>Merge API, Inc.</Authors>
+    <Company>Merge API, Inc.</Company>
+    <AssemblyTitle>Merge CRM SDK</AssemblyTitle>
+    <Description>The C# API Client for the Merge CRM API.</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Merge.CRMClient</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Merge.CRMClient.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/merge-api/merge-crm-csharp-net.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

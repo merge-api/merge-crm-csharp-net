@@ -31,6 +31,33 @@ namespace Merge.CRMClient.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Creates a &#x60;Task&#x60; object with the given values.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>TaskResponse</returns>
+        TaskResponse TasksCreate(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Creates a &#x60;Task&#x60; object with the given values.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>ApiResponse of TaskResponse</returns>
+        ApiResponse<TaskResponse> TasksCreateWithHttpInfo(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// Returns a list of &#x60;Task&#x60; objects.
         /// </remarks>
         /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
@@ -41,8 +68,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>PaginatedTaskList</returns>
@@ -62,12 +89,85 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>ApiResponse of PaginatedTaskList</returns>
         ApiResponse<PaginatedTaskList> TasksListWithHttpInfo(string xAccountToken, DateTime? createdAfter = default(DateTime?), DateTime? createdBefore = default(DateTime?), string cursor = default(string), bool? includeDeletedData = default(bool?), bool? includeRemoteData = default(bool?), bool? includeRemoteFields = default(bool?), DateTime? modifiedAfter = default(DateTime?), DateTime? modifiedBefore = default(DateTime?), int? pageSize = default(int?), string remoteId = default(string));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <returns>MetaResponse</returns>
+        MetaResponse TasksMetaPatchRetrieve(string xAccountToken, Guid id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of MetaResponse</returns>
+        ApiResponse<MetaResponse> TasksMetaPatchRetrieveWithHttpInfo(string xAccountToken, Guid id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <returns>MetaResponse</returns>
+        MetaResponse TasksMetaPostRetrieve(string xAccountToken);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <returns>ApiResponse of MetaResponse</returns>
+        ApiResponse<MetaResponse> TasksMetaPostRetrieveWithHttpInfo(string xAccountToken);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>TaskResponse</returns>
+        TaskResponse TasksPartialUpdate(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>ApiResponse of TaskResponse</returns>
+        ApiResponse<TaskResponse> TasksPartialUpdateWithHttpInfo(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?));
         /// <summary>
         /// 
         /// </summary>
@@ -139,6 +239,35 @@ namespace Merge.CRMClient.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Creates a &#x60;Task&#x60; object with the given values.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskResponse</returns>
+        System.Threading.Tasks.Task<TaskResponse> TasksCreateAsync(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Creates a &#x60;Task&#x60; object with the given values.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskResponse>> TasksCreateWithHttpInfoAsync(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// Returns a list of &#x60;Task&#x60; objects.
         /// </remarks>
         /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
@@ -149,8 +278,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -171,13 +300,92 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedTaskList)</returns>
         System.Threading.Tasks.Task<ApiResponse<PaginatedTaskList>> TasksListWithHttpInfoAsync(string xAccountToken, DateTime? createdAfter = default(DateTime?), DateTime? createdBefore = default(DateTime?), string cursor = default(string), bool? includeDeletedData = default(bool?), bool? includeRemoteData = default(bool?), bool? includeRemoteFields = default(bool?), DateTime? modifiedAfter = default(DateTime?), DateTime? modifiedBefore = default(DateTime?), int? pageSize = default(int?), string remoteId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MetaResponse</returns>
+        System.Threading.Tasks.Task<MetaResponse> TasksMetaPatchRetrieveAsync(string xAccountToken, Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MetaResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MetaResponse>> TasksMetaPatchRetrieveWithHttpInfoAsync(string xAccountToken, Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MetaResponse</returns>
+        System.Threading.Tasks.Task<MetaResponse> TasksMetaPostRetrieveAsync(string xAccountToken, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MetaResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MetaResponse>> TasksMetaPostRetrieveWithHttpInfoAsync(string xAccountToken, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskResponse</returns>
+        System.Threading.Tasks.Task<TaskResponse> TasksPartialUpdateAsync(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </remarks>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskResponse>> TasksPartialUpdateWithHttpInfoAsync(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -361,6 +569,175 @@ namespace Merge.CRMClient.Api
         }
 
         /// <summary>
+        ///  Creates a &#x60;Task&#x60; object with the given values.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>TaskResponse</returns>
+        public TaskResponse TasksCreate(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?))
+        {
+            Merge.CRMClient.Client.ApiResponse<TaskResponse> localVarResponse = TasksCreateWithHttpInfo(xAccountToken, taskEndpointRequest, isDebugMode, runAsync);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Creates a &#x60;Task&#x60; object with the given values.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>ApiResponse of TaskResponse</returns>
+        public Merge.CRMClient.Client.ApiResponse<TaskResponse> TasksCreateWithHttpInfo(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?))
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksCreate");
+
+            // verify the required parameter 'taskEndpointRequest' is set
+            if (taskEndpointRequest == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'taskEndpointRequest' when calling TasksApi->TasksCreate");
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json",
+                "application/x-www-form-urlencoded",
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (isDebugMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "is_debug_mode", isDebugMode));
+            }
+            if (runAsync != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "run_async", runAsync));
+            }
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+            localVarRequestOptions.Data = taskEndpointRequest;
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TaskResponse>("/tasks", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksCreate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Creates a &#x60;Task&#x60; object with the given values.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskResponse</returns>
+        public async System.Threading.Tasks.Task<TaskResponse> TasksCreateAsync(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Merge.CRMClient.Client.ApiResponse<TaskResponse> localVarResponse = await TasksCreateWithHttpInfoAsync(xAccountToken, taskEndpointRequest, isDebugMode, runAsync, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Creates a &#x60;Task&#x60; object with the given values.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="taskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskResponse)</returns>
+        public async System.Threading.Tasks.Task<Merge.CRMClient.Client.ApiResponse<TaskResponse>> TasksCreateWithHttpInfoAsync(string xAccountToken, TaskEndpointRequest taskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksCreate");
+
+            // verify the required parameter 'taskEndpointRequest' is set
+            if (taskEndpointRequest == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'taskEndpointRequest' when calling TasksApi->TasksCreate");
+
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json", 
+                "application/x-www-form-urlencoded", 
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (isDebugMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "is_debug_mode", isDebugMode));
+            }
+            if (runAsync != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "run_async", runAsync));
+            }
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+            localVarRequestOptions.Data = taskEndpointRequest;
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TaskResponse>("/tasks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksCreate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         ///  Returns a list of &#x60;Task&#x60; objects.
         /// </summary>
         /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
@@ -371,8 +748,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>PaginatedTaskList</returns>
@@ -393,8 +770,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <returns>ApiResponse of PaginatedTaskList</returns>
@@ -491,8 +868,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -514,8 +891,8 @@ namespace Merge.CRMClient.Api
         /// <param name="includeDeletedData">Whether to include data that was marked as deleted by third party webhooks. (optional)</param>
         /// <param name="includeRemoteData">Whether to include the original data Merge fetched from the third-party to produce these models. (optional)</param>
         /// <param name="includeRemoteFields">Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional)</param>
-        /// <param name="modifiedAfter">If provided, will only return objects modified after this datetime. (optional)</param>
-        /// <param name="modifiedBefore">If provided, will only return objects modified before this datetime. (optional)</param>
+        /// <param name="modifiedAfter">If provided, only objects synced by Merge after this date time will be returned. (optional)</param>
+        /// <param name="modifiedBefore">If provided, only objects synced by Merge before this date time will be returned. (optional)</param>
         /// <param name="pageSize">Number of results to return per page. (optional)</param>
         /// <param name="remoteId">The API provider&#39;s ID for the given object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -599,6 +976,437 @@ namespace Merge.CRMClient.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TasksList", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <returns>MetaResponse</returns>
+        public MetaResponse TasksMetaPatchRetrieve(string xAccountToken, Guid id)
+        {
+            Merge.CRMClient.Client.ApiResponse<MetaResponse> localVarResponse = TasksMetaPatchRetrieveWithHttpInfo(xAccountToken, id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of MetaResponse</returns>
+        public Merge.CRMClient.Client.ApiResponse<MetaResponse> TasksMetaPatchRetrieveWithHttpInfo(string xAccountToken, Guid id)
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksMetaPatchRetrieve");
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Merge.CRMClient.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MetaResponse>("/tasks/meta/patch/{id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksMetaPatchRetrieve", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MetaResponse</returns>
+        public async System.Threading.Tasks.Task<MetaResponse> TasksMetaPatchRetrieveAsync(string xAccountToken, Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Merge.CRMClient.Client.ApiResponse<MetaResponse> localVarResponse = await TasksMetaPatchRetrieveWithHttpInfoAsync(xAccountToken, id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; PATCHs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MetaResponse)</returns>
+        public async System.Threading.Tasks.Task<Merge.CRMClient.Client.ApiResponse<MetaResponse>> TasksMetaPatchRetrieveWithHttpInfoAsync(string xAccountToken, Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksMetaPatchRetrieve");
+
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Merge.CRMClient.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MetaResponse>("/tasks/meta/patch/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksMetaPatchRetrieve", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <returns>MetaResponse</returns>
+        public MetaResponse TasksMetaPostRetrieve(string xAccountToken)
+        {
+            Merge.CRMClient.Client.ApiResponse<MetaResponse> localVarResponse = TasksMetaPostRetrieveWithHttpInfo(xAccountToken);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <returns>ApiResponse of MetaResponse</returns>
+        public Merge.CRMClient.Client.ApiResponse<MetaResponse> TasksMetaPostRetrieveWithHttpInfo(string xAccountToken)
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksMetaPostRetrieve");
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MetaResponse>("/tasks/meta/post", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksMetaPostRetrieve", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MetaResponse</returns>
+        public async System.Threading.Tasks.Task<MetaResponse> TasksMetaPostRetrieveAsync(string xAccountToken, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Merge.CRMClient.Client.ApiResponse<MetaResponse> localVarResponse = await TasksMetaPostRetrieveWithHttpInfoAsync(xAccountToken, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns metadata for &#x60;Task&#x60; POSTs.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MetaResponse)</returns>
+        public async System.Threading.Tasks.Task<Merge.CRMClient.Client.ApiResponse<MetaResponse>> TasksMetaPostRetrieveWithHttpInfoAsync(string xAccountToken, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksMetaPostRetrieve");
+
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MetaResponse>("/tasks/meta/post", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksMetaPostRetrieve", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>TaskResponse</returns>
+        public TaskResponse TasksPartialUpdate(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?))
+        {
+            Merge.CRMClient.Client.ApiResponse<TaskResponse> localVarResponse = TasksPartialUpdateWithHttpInfo(xAccountToken, id, patchedTaskEndpointRequest, isDebugMode, runAsync);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <returns>ApiResponse of TaskResponse</returns>
+        public Merge.CRMClient.Client.ApiResponse<TaskResponse> TasksPartialUpdateWithHttpInfo(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?))
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksPartialUpdate");
+
+            // verify the required parameter 'patchedTaskEndpointRequest' is set
+            if (patchedTaskEndpointRequest == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'patchedTaskEndpointRequest' when calling TasksApi->TasksPartialUpdate");
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json",
+                "application/x-www-form-urlencoded",
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Merge.CRMClient.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (isDebugMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "is_debug_mode", isDebugMode));
+            }
+            if (runAsync != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "run_async", runAsync));
+            }
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+            localVarRequestOptions.Data = patchedTaskEndpointRequest;
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<TaskResponse>("/tasks/{id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksPartialUpdate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskResponse</returns>
+        public async System.Threading.Tasks.Task<TaskResponse> TasksPartialUpdateAsync(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Merge.CRMClient.Client.ApiResponse<TaskResponse> localVarResponse = await TasksPartialUpdateWithHttpInfoAsync(xAccountToken, id, patchedTaskEndpointRequest, isDebugMode, runAsync, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Updates a &#x60;Task&#x60; object with the given &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="Merge.CRMClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xAccountToken">Token identifying the end user.</param>
+        /// <param name="id"></param>
+        /// <param name="patchedTaskEndpointRequest"></param>
+        /// <param name="isDebugMode">Whether to include debug fields (such as log file links) in the response. (optional)</param>
+        /// <param name="runAsync">Whether or not third-party updates should be run asynchronously. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskResponse)</returns>
+        public async System.Threading.Tasks.Task<Merge.CRMClient.Client.ApiResponse<TaskResponse>> TasksPartialUpdateWithHttpInfoAsync(string xAccountToken, Guid id, PatchedTaskEndpointRequest patchedTaskEndpointRequest, bool? isDebugMode = default(bool?), bool? runAsync = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'xAccountToken' is set
+            if (xAccountToken == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'xAccountToken' when calling TasksApi->TasksPartialUpdate");
+
+            // verify the required parameter 'patchedTaskEndpointRequest' is set
+            if (patchedTaskEndpointRequest == null)
+                throw new Merge.CRMClient.Client.ApiException(400, "Missing required parameter 'patchedTaskEndpointRequest' when calling TasksApi->TasksPartialUpdate");
+
+
+            Merge.CRMClient.Client.RequestOptions localVarRequestOptions = new Merge.CRMClient.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json", 
+                "application/x-www-form-urlencoded", 
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Merge.CRMClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Merge.CRMClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Merge.CRMClient.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (isDebugMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "is_debug_mode", isDebugMode));
+            }
+            if (runAsync != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Merge.CRMClient.Client.ClientUtils.ParameterToMultiMap("", "run_async", runAsync));
+            }
+            localVarRequestOptions.HeaderParameters.Add("X-Account-Token", Merge.CRMClient.Client.ClientUtils.ParameterToString(xAccountToken)); // header parameter
+            localVarRequestOptions.Data = patchedTaskEndpointRequest;
+
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<TaskResponse>("/tasks/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TasksPartialUpdate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

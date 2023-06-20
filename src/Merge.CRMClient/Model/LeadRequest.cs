@@ -41,12 +41,16 @@ namespace Merge.CRMClient.Model
         /// <param name="company">The lead&#39;s company..</param>
         /// <param name="firstName">The lead&#39;s first name..</param>
         /// <param name="lastName">The lead&#39;s last name..</param>
+        /// <param name="addresses">addresses.</param>
+        /// <param name="emailAddresses">emailAddresses.</param>
+        /// <param name="phoneNumbers">phoneNumbers.</param>
         /// <param name="convertedDate">When the lead was converted..</param>
         /// <param name="convertedContact">The contact of the converted lead..</param>
         /// <param name="convertedAccount">The account of the converted lead..</param>
         /// <param name="integrationParams">integrationParams.</param>
         /// <param name="linkedAccountParams">linkedAccountParams.</param>
-        public LeadRequest(Guid? owner = default(Guid?), string leadSource = default(string), string title = default(string), string company = default(string), string firstName = default(string), string lastName = default(string), DateTime? convertedDate = default(DateTime?), Guid? convertedContact = default(Guid?), Guid? convertedAccount = default(Guid?), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>))
+        /// <param name="remoteFields">remoteFields.</param>
+        public LeadRequest(Guid? owner = default(Guid?), string leadSource = default(string), string title = default(string), string company = default(string), string firstName = default(string), string lastName = default(string), List<AddressRequest> addresses = default(List<AddressRequest>), List<EmailAddressRequest> emailAddresses = default(List<EmailAddressRequest>), List<PhoneNumberRequest> phoneNumbers = default(List<PhoneNumberRequest>), DateTime? convertedDate = default(DateTime?), Guid? convertedContact = default(Guid?), Guid? convertedAccount = default(Guid?), Dictionary<string, Object> integrationParams = default(Dictionary<string, Object>), Dictionary<string, Object> linkedAccountParams = default(Dictionary<string, Object>), List<RemoteFieldRequest> remoteFields = default(List<RemoteFieldRequest>))
         {
             this.Owner = owner;
             this.LeadSource = leadSource;
@@ -54,11 +58,15 @@ namespace Merge.CRMClient.Model
             this.Company = company;
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.Addresses = addresses;
+            this.EmailAddresses = emailAddresses;
+            this.PhoneNumbers = phoneNumbers;
             this.ConvertedDate = convertedDate;
             this.ConvertedContact = convertedContact;
             this.ConvertedAccount = convertedAccount;
             this.IntegrationParams = integrationParams;
             this.LinkedAccountParams = linkedAccountParams;
+            this.RemoteFields = remoteFields;
         }
 
         /// <summary>
@@ -104,6 +112,24 @@ namespace Merge.CRMClient.Model
         public string LastName { get; set; }
 
         /// <summary>
+        /// Gets or Sets Addresses
+        /// </summary>
+        [DataMember(Name = "addresses", EmitDefaultValue = false)]
+        public List<AddressRequest> Addresses { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmailAddresses
+        /// </summary>
+        [DataMember(Name = "email_addresses", EmitDefaultValue = false)]
+        public List<EmailAddressRequest> EmailAddresses { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PhoneNumbers
+        /// </summary>
+        [DataMember(Name = "phone_numbers", EmitDefaultValue = false)]
+        public List<PhoneNumberRequest> PhoneNumbers { get; set; }
+
+        /// <summary>
         /// When the lead was converted.
         /// </summary>
         /// <value>When the lead was converted.</value>
@@ -137,6 +163,12 @@ namespace Merge.CRMClient.Model
         public Dictionary<string, Object> LinkedAccountParams { get; set; }
 
         /// <summary>
+        /// Gets or Sets RemoteFields
+        /// </summary>
+        [DataMember(Name = "remote_fields", EmitDefaultValue = false)]
+        public List<RemoteFieldRequest> RemoteFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -150,11 +182,15 @@ namespace Merge.CRMClient.Model
             sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  Addresses: ").Append(Addresses).Append("\n");
+            sb.Append("  EmailAddresses: ").Append(EmailAddresses).Append("\n");
+            sb.Append("  PhoneNumbers: ").Append(PhoneNumbers).Append("\n");
             sb.Append("  ConvertedDate: ").Append(ConvertedDate).Append("\n");
             sb.Append("  ConvertedContact: ").Append(ConvertedContact).Append("\n");
             sb.Append("  ConvertedAccount: ").Append(ConvertedAccount).Append("\n");
             sb.Append("  IntegrationParams: ").Append(IntegrationParams).Append("\n");
             sb.Append("  LinkedAccountParams: ").Append(LinkedAccountParams).Append("\n");
+            sb.Append("  RemoteFields: ").Append(RemoteFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -220,6 +256,24 @@ namespace Merge.CRMClient.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
+                    this.Addresses == input.Addresses ||
+                    this.Addresses != null &&
+                    input.Addresses != null &&
+                    this.Addresses.SequenceEqual(input.Addresses)
+                ) && 
+                (
+                    this.EmailAddresses == input.EmailAddresses ||
+                    this.EmailAddresses != null &&
+                    input.EmailAddresses != null &&
+                    this.EmailAddresses.SequenceEqual(input.EmailAddresses)
+                ) && 
+                (
+                    this.PhoneNumbers == input.PhoneNumbers ||
+                    this.PhoneNumbers != null &&
+                    input.PhoneNumbers != null &&
+                    this.PhoneNumbers.SequenceEqual(input.PhoneNumbers)
+                ) && 
+                (
                     this.ConvertedDate == input.ConvertedDate ||
                     (this.ConvertedDate != null &&
                     this.ConvertedDate.Equals(input.ConvertedDate))
@@ -245,6 +299,12 @@ namespace Merge.CRMClient.Model
                     this.LinkedAccountParams != null &&
                     input.LinkedAccountParams != null &&
                     this.LinkedAccountParams.SequenceEqual(input.LinkedAccountParams)
+                ) && 
+                (
+                    this.RemoteFields == input.RemoteFields ||
+                    this.RemoteFields != null &&
+                    input.RemoteFields != null &&
+                    this.RemoteFields.SequenceEqual(input.RemoteFields)
                 );
         }
 
@@ -269,6 +329,12 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                if (this.Addresses != null)
+                    hashCode = hashCode * 59 + this.Addresses.GetHashCode();
+                if (this.EmailAddresses != null)
+                    hashCode = hashCode * 59 + this.EmailAddresses.GetHashCode();
+                if (this.PhoneNumbers != null)
+                    hashCode = hashCode * 59 + this.PhoneNumbers.GetHashCode();
                 if (this.ConvertedDate != null)
                     hashCode = hashCode * 59 + this.ConvertedDate.GetHashCode();
                 if (this.ConvertedContact != null)
@@ -279,6 +345,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.IntegrationParams.GetHashCode();
                 if (this.LinkedAccountParams != null)
                     hashCode = hashCode * 59 + this.LinkedAccountParams.GetHashCode();
+                if (this.RemoteFields != null)
+                    hashCode = hashCode * 59 + this.RemoteFields.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.SyncStatusStatusEnum
+* `SYNCING` - SYNCING * `DONE` - DONE * `FAILED` - FAILED * `DISABLED` - DISABLED * `PAUSED` - PAUSED * `PARTIALLY_SYNCED` - PARTIALLY_SYNCED
 
 ## Properties
 

@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.SelectiveSyncConfigurationsUsageEnum
+* `IN_NEXT_SYNC` - IN_NEXT_SYNC * `IN_LAST_SYNC` - IN_LAST_SYNC
 
 ## Properties
 

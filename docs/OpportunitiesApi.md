@@ -132,15 +132,15 @@ namespace Example
             var includeDeletedData = true;  // bool? | Whether to include data that was marked as deleted by third party webhooks. (optional) 
             var includeRemoteData = true;  // bool? | Whether to include the original data Merge fetched from the third-party to produce these models. (optional) 
             var includeRemoteFields = true;  // bool? | Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. (optional) 
-            var modifiedAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, will only return objects modified after this datetime. (optional) 
-            var modifiedBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, will only return objects modified before this datetime. (optional) 
+            var modifiedAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, only objects synced by Merge after this date time will be returned. (optional) 
+            var modifiedBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | If provided, only objects synced by Merge before this date time will be returned. (optional) 
             var ownerId = ownerId_example;  // string | If provided, will only return opportunities with this owner. (optional) 
             var pageSize = 56;  // int? | Number of results to return per page. (optional) 
             var remoteFields = status;  // string | Deprecated. Use show_enum_origins. (optional) 
             var remoteId = remoteId_example;  // string | The API provider's ID for the given object. (optional) 
             var showEnumOrigins = status;  // string | Which fields should be returned in non-normalized form. (optional) 
             var stageId = stageId_example;  // string | If provided, will only return opportunities with this stage. (optional) 
-            var status = status_example;  // string | If provided, will only return opportunities with this status. Options: ('OPEN', 'WON', 'LOST') (optional) 
+            var status = status_example;  // string | If provided, will only return opportunities with this status. Options: ('OPEN', 'WON', 'LOST')  * `OPEN` - OPEN * `WON` - WON * `LOST` - LOST (optional) 
 
             try
             {
@@ -170,15 +170,15 @@ Name | Type | Description  | Notes
  **includeDeletedData** | **bool?**| Whether to include data that was marked as deleted by third party webhooks. | [optional] 
  **includeRemoteData** | **bool?**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] 
  **includeRemoteFields** | **bool?**| Whether to include all remote fields, including fields that Merge did not map to common models, in a normalized format. | [optional] 
- **modifiedAfter** | **DateTime?**| If provided, will only return objects modified after this datetime. | [optional] 
- **modifiedBefore** | **DateTime?**| If provided, will only return objects modified before this datetime. | [optional] 
+ **modifiedAfter** | **DateTime?**| If provided, only objects synced by Merge after this date time will be returned. | [optional] 
+ **modifiedBefore** | **DateTime?**| If provided, only objects synced by Merge before this date time will be returned. | [optional] 
  **ownerId** | **string**| If provided, will only return opportunities with this owner. | [optional] 
  **pageSize** | **int?**| Number of results to return per page. | [optional] 
  **remoteFields** | **string**| Deprecated. Use show_enum_origins. | [optional] 
  **remoteId** | **string**| The API provider&#39;s ID for the given object. | [optional] 
  **showEnumOrigins** | **string**| Which fields should be returned in non-normalized form. | [optional] 
  **stageId** | **string**| If provided, will only return opportunities with this stage. | [optional] 
- **status** | **string**| If provided, will only return opportunities with this status. Options: (&#39;OPEN&#39;, &#39;WON&#39;, &#39;LOST&#39;) | [optional] 
+ **status** | **string**| If provided, will only return opportunities with this status. Options: (&#39;OPEN&#39;, &#39;WON&#39;, &#39;LOST&#39;)  * &#x60;OPEN&#x60; - OPEN * &#x60;WON&#x60; - WON * &#x60;LOST&#x60; - LOST | [optional] 
 
 ### Return type
 

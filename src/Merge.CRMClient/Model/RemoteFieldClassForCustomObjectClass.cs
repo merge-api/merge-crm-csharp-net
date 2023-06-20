@@ -37,7 +37,7 @@ namespace Merge.CRMClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [DataMember(Name = "field_type", EmitDefaultValue = false)]
-        public FieldType556Enum? FieldType { get; set; }
+        public FieldTypeEnum? FieldType { get; set; }
 
         /// <summary>
         /// Returns false as FieldType should not be serialized given that it's read-only.
@@ -52,7 +52,7 @@ namespace Merge.CRMClient.Model
         /// Gets or Sets FieldFormat
         /// </summary>
         [DataMember(Name = "field_format", EmitDefaultValue = false)]
-        public FieldFormat556Enum? FieldFormat { get; set; }
+        public FieldFormatEnum? FieldFormat { get; set; }
 
         /// <summary>
         /// Returns false as FieldFormat should not be serialized given that it's read-only.
@@ -125,6 +125,22 @@ namespace Merge.CRMClient.Model
         public RemoteFieldClassForCustomObjectClassItemSchema ItemSchema { get; set; }
 
         /// <summary>
+        /// This is the datetime that this object was last updated by Merge
+        /// </summary>
+        /// <value>This is the datetime that this object was last updated by Merge</value>
+        [DataMember(Name = "modified_at", EmitDefaultValue = false)]
+        public DateTime ModifiedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as ModifiedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeModifiedAt()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -140,6 +156,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  FieldFormat: ").Append(FieldFormat).Append("\n");
             sb.Append("  FieldChoices: ").Append(FieldChoices).Append("\n");
             sb.Append("  ItemSchema: ").Append(ItemSchema).Append("\n");
+            sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -211,6 +228,11 @@ namespace Merge.CRMClient.Model
                     this.ItemSchema == input.ItemSchema ||
                     (this.ItemSchema != null &&
                     this.ItemSchema.Equals(input.ItemSchema))
+                ) && 
+                (
+                    this.ModifiedAt == input.ModifiedAt ||
+                    (this.ModifiedAt != null &&
+                    this.ModifiedAt.Equals(input.ModifiedAt))
                 );
         }
 
@@ -236,6 +258,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.FieldChoices.GetHashCode();
                 if (this.ItemSchema != null)
                     hashCode = hashCode * 59 + this.ItemSchema.GetHashCode();
+                if (this.ModifiedAt != null)
+                    hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 return hashCode;
             }
         }

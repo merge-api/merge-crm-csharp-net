@@ -1,4 +1,5 @@
 # Merge.CRMClient.Model.EnabledActionsEnum
+* `READ` - READ * `WRITE` - WRITE
 
 ## Properties
 

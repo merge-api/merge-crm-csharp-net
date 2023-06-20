@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Owner** | **Guid?** | The engagement&#39;s owner. | [optional] 
 **Content** | **string** | The engagement&#39;s content. | [optional] 
 **Subject** | **string** | The engagement&#39;s subject. | [optional] 
-**Direction** | **DirectionEnum** | The engagement&#39;s direction. | [optional] 
+**Direction** | **DirectionEnum** | The engagement&#39;s direction.  * &#x60;INBOUND&#x60; - INBOUND * &#x60;OUTBOUND&#x60; - OUTBOUND | [optional] 
 **EngagementType** | **Guid?** | The engagement type of the engagement. | [optional] 
 **StartTime** | **DateTime?** | The time at which the engagement started. | [optional] 
 **EndTime** | **DateTime?** | The time at which the engagement ended. | [optional] 
@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Id** | **Guid** |  | [optional] [readonly] 
 **RemoteId** | **string** | The third-party API ID of the matching object. | [optional] 
 **FieldMappings** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**ModifiedAt** | **DateTime** | This is the datetime that this object was last updated by Merge | [optional] [readonly] 
 **RemoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  | [optional] [readonly] 
 **RemoteFields** | [**List&lt;RemoteField&gt;**](RemoteField.md) |  | [optional] [readonly] 
 

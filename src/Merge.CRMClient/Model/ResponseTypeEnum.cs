@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines ResponseTypeEnum
+    /// * &#x60;JSON&#x60; - JSON * &#x60;BASE64_GZIP&#x60; - BASE64_GZIP
     /// </summary>
+    /// <value>* &#x60;JSON&#x60; - JSON * &#x60;BASE64_GZIP&#x60; - BASE64_GZIP</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum ResponseTypeEnum
     {

@@ -11,11 +11,15 @@ Name | Type | Description | Notes
 **Company** | **string** | The lead&#39;s company. | [optional] 
 **FirstName** | **string** | The lead&#39;s first name. | [optional] 
 **LastName** | **string** | The lead&#39;s last name. | [optional] 
+**Addresses** | [**List&lt;AddressRequest&gt;**](AddressRequest.md) |  | [optional] 
+**EmailAddresses** | [**List&lt;EmailAddressRequest&gt;**](EmailAddressRequest.md) |  | [optional] 
+**PhoneNumbers** | [**List&lt;PhoneNumberRequest&gt;**](PhoneNumberRequest.md) |  | [optional] 
 **ConvertedDate** | **DateTime?** | When the lead was converted. | [optional] 
 **ConvertedContact** | **Guid?** | The contact of the converted lead. | [optional] 
 **ConvertedAccount** | **Guid?** | The account of the converted lead. | [optional] 
 **IntegrationParams** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
 **LinkedAccountParams** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
+**RemoteFields** | [**List&lt;RemoteFieldRequest&gt;**](RemoteFieldRequest.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

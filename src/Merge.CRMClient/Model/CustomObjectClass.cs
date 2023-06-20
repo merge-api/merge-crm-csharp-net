@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// # The CustomObjectClass Object ### Description The Custom Object Class object is used to represent a Custom Object Schema in the remote system. ### Usage Example TODO
+    /// # The Custom Object Class Object ### Description The &#x60;Custom Object Class&#x60; object is used to represent a Custom Object Schema in the remote system. ### Usage Example TODO
     /// </summary>
     [DataContract(Name = "CustomObjectClass")]
     public partial class CustomObjectClass : IEquatable<CustomObjectClass>, IValidatableObject
@@ -125,6 +125,21 @@ namespace Merge.CRMClient.Model
         public string RemoteId { get; set; }
 
         /// <summary>
+        /// Gets or Sets ModifiedAt
+        /// </summary>
+        [DataMember(Name = "modified_at", EmitDefaultValue = false)]
+        public DateTime ModifiedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as ModifiedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeModifiedAt()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -139,6 +154,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  AssociationTypes: ").Append(AssociationTypes).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  RemoteId: ").Append(RemoteId).Append("\n");
+            sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -210,6 +226,11 @@ namespace Merge.CRMClient.Model
                     this.RemoteId == input.RemoteId ||
                     (this.RemoteId != null &&
                     this.RemoteId.Equals(input.RemoteId))
+                ) && 
+                (
+                    this.ModifiedAt == input.ModifiedAt ||
+                    (this.ModifiedAt != null &&
+                    this.ModifiedAt.Equals(input.ModifiedAt))
                 );
         }
 
@@ -236,6 +257,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.RemoteId != null)
                     hashCode = hashCode * 59 + this.RemoteId.GetHashCode();
+                if (this.ModifiedAt != null)
+                    hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 return hashCode;
             }
         }

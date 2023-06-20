@@ -34,15 +34,15 @@ namespace Merge.CRMClient.Model
     {
 
         /// <summary>
-        /// The engagement type&#39;s activity type.
+        /// The engagement type&#39;s activity type.  * &#x60;CALL&#x60; - CALL * &#x60;MEETING&#x60; - MEETING * &#x60;EMAIL&#x60; - EMAIL
         /// </summary>
-        /// <value>The engagement type&#39;s activity type.</value>
+        /// <value>The engagement type&#39;s activity type.  * &#x60;CALL&#x60; - CALL * &#x60;MEETING&#x60; - MEETING * &#x60;EMAIL&#x60; - EMAIL</value>
         [DataMember(Name = "activity_type", EmitDefaultValue = true)]
         public ActivityTypeEnum? ActivityType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EngagementType" /> class.
         /// </summary>
-        /// <param name="activityType">The engagement type&#39;s activity type..</param>
+        /// <param name="activityType">The engagement type&#39;s activity type.  * &#x60;CALL&#x60; - CALL * &#x60;MEETING&#x60; - MEETING * &#x60;EMAIL&#x60; - EMAIL.</param>
         /// <param name="name">The engagement type&#39;s name..</param>
         /// <param name="remoteId">The third-party API ID of the matching object..</param>
         public EngagementType(ActivityTypeEnum? activityType = default(ActivityTypeEnum?), string name = default(string), string remoteId = default(string))
@@ -82,6 +82,22 @@ namespace Merge.CRMClient.Model
         public string RemoteId { get; set; }
 
         /// <summary>
+        /// This is the datetime that this object was last updated by Merge
+        /// </summary>
+        /// <value>This is the datetime that this object was last updated by Merge</value>
+        [DataMember(Name = "modified_at", EmitDefaultValue = false)]
+        public DateTime ModifiedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as ModifiedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeModifiedAt()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Gets or Sets RemoteFields
         /// </summary>
         [DataMember(Name = "remote_fields", EmitDefaultValue = false)]
@@ -108,6 +124,7 @@ namespace Merge.CRMClient.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  RemoteId: ").Append(RemoteId).Append("\n");
+            sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("  RemoteFields: ").Append(RemoteFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -163,6 +180,11 @@ namespace Merge.CRMClient.Model
                     this.RemoteId.Equals(input.RemoteId))
                 ) && 
                 (
+                    this.ModifiedAt == input.ModifiedAt ||
+                    (this.ModifiedAt != null &&
+                    this.ModifiedAt.Equals(input.ModifiedAt))
+                ) && 
+                (
                     this.RemoteFields == input.RemoteFields ||
                     this.RemoteFields != null &&
                     input.RemoteFields != null &&
@@ -186,6 +208,8 @@ namespace Merge.CRMClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.RemoteId != null)
                     hashCode = hashCode * 59 + this.RemoteId.GetHashCode();
+                if (this.ModifiedAt != null)
+                    hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 if (this.RemoteFields != null)
                     hashCode = hashCode * 59 + this.RemoteFields.GetHashCode();
                 return hashCode;

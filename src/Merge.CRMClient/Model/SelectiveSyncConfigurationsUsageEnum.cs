@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines SelectiveSyncConfigurationsUsageEnum
+    /// * &#x60;IN_NEXT_SYNC&#x60; - IN_NEXT_SYNC * &#x60;IN_LAST_SYNC&#x60; - IN_LAST_SYNC
     /// </summary>
+    /// <value>* &#x60;IN_NEXT_SYNC&#x60; - IN_NEXT_SYNC * &#x60;IN_LAST_SYNC&#x60; - IN_LAST_SYNC</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SelectiveSyncConfigurationsUsageEnum
     {

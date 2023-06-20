@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Merge.CRMClient.Client.OpenAPIDateConverter;
 namespace Merge.CRMClient.Model
 {
     /// <summary>
-    /// Defines OriginTypeEnum
+    /// * &#x60;CUSTOM_OBJECT&#x60; - CUSTOM_OBJECT * &#x60;COMMON_MODEL&#x60; - COMMON_MODEL * &#x60;REMOTE_ONLY_MODEL&#x60; - REMOTE_ONLY_MODEL
     /// </summary>
+    /// <value>* &#x60;CUSTOM_OBJECT&#x60; - CUSTOM_OBJECT * &#x60;COMMON_MODEL&#x60; - COMMON_MODEL * &#x60;REMOTE_ONLY_MODEL&#x60; - REMOTE_ONLY_MODEL</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum OriginTypeEnum
     {
